@@ -22,7 +22,6 @@ import (
 
 	"mosn.io/api"
 	"mosn.io/api/types"
-	"mosn.io/pkg/buffer"
 )
 
 // StreamType distinguish the stream flow type.
@@ -61,9 +60,9 @@ type XFrame interface {
 
 	GetHeader() api.HeaderMap
 
-	GetData() buffer.IoBuffer
+	GetData() api.IoBuffer
 
-	SetData(data buffer.IoBuffer)
+	SetData(data api.IoBuffer)
 }
 
 // XRespFrame expose response status code based on the XFrame
