@@ -140,12 +140,17 @@ type Hijacker interface {
 	Mapping(httpStatusCode uint32) uint32
 }
 
+// XProtocolCodec provides the ability to load a codec plugin at runtime
 type XProtocolCodec interface {
+	// ProtocolName returns the name of the protocol
 	ProtocolName() ProtocolName
 
+	// XProtocol returns the implementation for XProtocol of the protocol
 	XProtocol() XProtocol
 
+	// ProtocolMatch returns the matcher function of the protocol
 	ProtocolMatch() ProtocolMatch
 
+	// HTTPMapping returns the implementation for HTTPMapping of the protocol
 	HTTPMapping() HTTPMapping
 }
